@@ -75,7 +75,7 @@ def test_load_from_ultralytics_voc(arch: str, version: str, upstream_version: st
     model_yolov5.eval()
     with torch.no_grad():
         outs = model_yolov5(img[None])[0]
-        outs = non_max_suppression(outs, conf, iou, agnostic=True)
+        outs = non_max_suppression(outs, conf, iou)
         out_from_yolov5 = outs[0]
 
     # Define yolort model
