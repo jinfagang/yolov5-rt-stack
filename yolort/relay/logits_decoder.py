@@ -57,5 +57,6 @@ class LogitsDecoder(nn.Module):
 
         # The default boxes tensor has shape [batch_size, number_boxes, 4].
         boxes = torch.stack(bbox_regression)
+        boxes = boxes.unsqueeze(-2)
         scores = torch.stack(pred_scores)
         return boxes, scores
